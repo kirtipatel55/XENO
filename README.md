@@ -1,30 +1,142 @@
-# React + TypeScript + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+# Mini CRM Application
 
-## Expanding the ESLint configuration
+## Table of Contents
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- [Introduction](#introduction)
+- [Features](#features)
+- [Technologies Used](#technologies-used)
+- [Setup and Installation](#setup-and-installation)
+- [Usage](#usage)
+- [API Documentation](#api-documentation)
+- [Contributing](#contributing)
+- [License](#license)
 
-- Configure the top-level `parserOptions` property like this:
+## Introduction
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+The Mini CRM Application is a comprehensive customer relationship management tool designed to help businesses manage their interactions with current and potential customers. This application allows for efficient data ingestion, audience creation and segmentation, and campaign management.
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+## Features
+
+- **Data Ingestion:** Easily import and manage customer data.
+- **Campaign Management:** Create, schedule, and send marketing campaigns.
+- **Audience Creation:** Define and manage target audiences.
+- **Filtering and Segmentation:** Filter audiences based on various conditions to target specific groups.
+
+## Technologies Used
+
+- **Frontend:** React, Tailwind CSS
+- **Backend:** Node.js, Express
+- **Database:** MongoDB
+- **Authorization:** Zod
+
+## Setup and Installation
+
+To get a local copy up and running, follow these simple steps:
+
+1. **Clone the repository:**
+    ```bash
+    git clone https://github.com/yourusername/mini-crm-app.git
+    ```
+
+2. **Navigate to the project directory:**
+    ```bash
+    cd mini-crm-app
+    ```
+
+3. **Install dependencies:**
+    ```bash
+    npm install
+    ```
+
+4. **Set up environment variables:**
+    Create a `.env` file in the root directory and add your environment variables (e.g., database connection string).
+
+5. **Run the application:**
+    ```bash
+    npm start
+    ```
+
+## Usage
+
+1. **Data Ingestion:** Upload CSV or JSON files containing customer data through the application interface.
+2. **Create Audience:** Use the audience creation tool to define specific customer segments.
+3. **Send Campaigns:** Design and schedule marketing campaigns to be sent to selected audiences.
+4. **Filter and Segment:** Apply various filters to segment your audience based on conditions such as demographics, behavior, and more.
+
+## API Documentation
+
+### Endpoints
+
+- **/api/ingest**
+  - `POST`: Ingest customer data.
+
+- **/api/audiences**
+  - `GET`: Retrieve all audiences.
+  - `POST`: Create a new audience.
+
+- **/api/audiences/:id**
+  - `GET`: Retrieve a specific audience.
+  - `PUT`: Update an existing audience.
+  - `DELETE`: Delete an audience.
+
+- **/api/campaigns**
+  - `GET`: Retrieve all campaigns.
+  - `POST`: Create a new campaign.
+
+- **/api/campaigns/:id**
+  - `GET`: Retrieve a specific campaign.
+  - `PUT`: Update an existing campaign.
+  - `DELETE`: Delete a campaign.
+
+### Data Models
+
+- **Customer**
+  ```json
+  {
+    "name": "string",
+    "email": "string",
+    "phone": "string",
+    "address": "string",
+    ...
+  }
+  ```
+
+- **Audience**
+  ```json
+  {
+    "name": "string",
+    "description": "string",
+    "conditions": [ ... ]
+  }
+  ```
+
+- **Campaign**
+  ```json
+  {
+    "name": "string",
+    "content": "string",
+    "scheduledDate": "date",
+    "audienceId": "string"
+  }
+  ```
+
+## Contributing
+
+Contributions are what make the open-source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
+
+1. Fork the Project
+2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the Branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+## License
+
+Distributed under the MIT License. See `LICENSE` for more information.
+
+---
+
